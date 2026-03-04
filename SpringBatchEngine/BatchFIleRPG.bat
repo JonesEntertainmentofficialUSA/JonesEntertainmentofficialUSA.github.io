@@ -2,7 +2,7 @@
 setlocal enableDelayedExpansion
 chcp 65001 >nul
 title BATCH FILE ADVENTURE
-start "" powershell -WindowStyle Hidden -c "$p = New-Object Media.SoundPlayer 'C:\Users\Chris\OneDrive\Desktop\BATCH FILE ADVENTURE\Title-Screen-Batch-Adventure-Volt-Beam-Games.wav'; while($true){ $p.Play(); Start-Sleep -Milliseconds 500 }"
+start "" powershell -WindowStyle Hidden -c "$p = New-Object Media.SoundPlayer 'C:\Users\!USERNAME!\OneDrive\Desktop\BATCH FILE ADVENTURE\Title-Screen-Batch-Adventure-Volt-Beam-Games.wav'; while($true){ $p.Play(); Start-Sleep -Milliseconds 500 }"
 set true=1
 set false=0
 goto TitleScreen 
@@ -12,7 +12,7 @@ goto TitleScreen
 :DEV_MODE
 cls
 @echo on 
-start "C:\Users\Chris\OneDrive\Desktop\DEV-File.bat" 
+start "C:\Users\!USERNAME!\OneDrive\Desktop\DEV-File.bat" 
 echo        ENTERCODE: 
 set /p Dev_code= 
 if not !DEV_code! equ !PASS! exit
@@ -771,4 +771,5 @@ goto import.Grid_15x15
 cls
 color 0C
 echo                                           GAME OVER.
+
 ping localhost
