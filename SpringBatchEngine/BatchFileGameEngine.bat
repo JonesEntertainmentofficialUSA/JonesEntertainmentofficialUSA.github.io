@@ -60,7 +60,7 @@ setlocal enabledelayedexpansion
 >>renderer.hta echo       img.id = "t" + x + "_" + y;
 >>renderer.hta echo       img.width = 32;
 >>renderer.hta echo       img.height = 32;
->>renderer.hta echo       img.src = "tiles/C:\Users\Chris\OneDrive\Pictures\134151309275504563.jpg";
+>>renderer.hta echo       img.src = "tiles/C:\Users\!USERNAME!\OneDrive\Pictures\134151309275504563.jpg";
 >>renderer.hta echo       grid.appendChild(img);
 >>renderer.hta echo     }
 >>renderer.hta echo     grid.appendChild(document.createElement("br"));
@@ -83,7 +83,7 @@ set x=0
 set y=0
 
 :loop
-echo set !x! !y! tiles/"C:\Users\Chris\OneDrive\Pictures\134151309275504563.jpg" > engine_cmd.txt
+echo set !x! !y! tiles/"C:\Users\!USERNAME!\OneDrive\Pictures\134151309275504563.jpg" > engine_cmd.txt
 
 set /a x+=1
 if !x! geq 10 (
@@ -94,4 +94,5 @@ if !x! geq 10 (
 if !y! geq 10 set y=0
 
 timeout /t 1 >nul
+
 goto loop
