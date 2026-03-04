@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<html>
+<head>
+<HTA:APPLICATION border="none" scroll="no" caption="yes" windowstate="normal" />
+<script language="javascript">
+var rows = 10;
+var cols = 10;
+function poll() {
+  try {
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    if (fso.FileExists("engine_cmd.txt")) return;
+    var file = fso.OpenTextFile("engine_cmd.txt", 1);
+    var cmd = file.ReadAll().trim();
+    file.Close();
+    if (cmd.length == 0) return;
+    var parts = cmd.split(" ");
+    if (parts[0] == "set") {
+      var x = parts[1];
+      var y = parts[2];
+      var img = parts[3];
+      document.getElementById("t" + x + "_" + y).src = img;
+    }
+  } catch(e) {
+    alert("Error: " + e.message);
+  }
+}
+window.onload = function() {
+  buildGrid();
+  setInterval(poll, 50);
+}
+</script>
+</head>
+<body style="background:yellow; margin:0;">
+<div id="grid" style="line-height:0;"></div>
+</body>
+</html>
+function buildGrid() {
+  var grid = document.getElementById("grid");
+      var img = document.createElement("img");
+      img.id = "t" + x + "_" + y;
+      img.width = 32;
+      img.height = 32;
+      img.src = "tiles/C:\Users\Chris\OneDrive\Pictures\134151309275504563.jpg";
+      grid.appendChild(img);
+    }
+    grid.appendChild(document.createElement("br"));
+  }
+}
